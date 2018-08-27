@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Send the message "Hello" to the parent window
+    // ...if the domain is still "davidwalsh.name"
+    (() => {
+      // localStorage.setItem('user', JSON.stringify({ "isLoading": false, "error": false, "data": { "id": "35", "email": "zaza@asfasfasf.cs", "username": "asdfjhb asjdfb", "sanBalance": 0, "privacyPolicyAccepted": true, "marketingAccepted": false, "ethAccounts": [{ "address": "0x904b452a804e9c59bafb0fc9fcd56a7369d518b7", "sanBalance": "0.000000000000000000", "__typename": "EthAccount" }], "apikeys": ["vr5vfqvxc4537h3oe4r5iwg6jtf6etss_hkusplbqjlmeibqdefp6gvy473wjwwrr", "w7qtjkjcxumpgtmmg4wiiv665ypefa7q_zavyy4g25qbc65325p4mrcwvzezdk576"], "__typename": "User" }, "account": null, "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJzYW50aW1lbnQiLCJleHAiOjE1MzczNzI3NTIsImlhdCI6MTUzNDk1MzU1MiwiaXNzIjoic2FudGltZW50IiwianRpIjoiOWM1N2U0MzUtZmU2Ny00M2E1LTg3OWYtODNiMGZiNjI2MzNiIiwibmJmIjoxNTM0OTUzNTUxLCJzYWx0IjoiaE56enJSTFlLZVZwanBWRk5kVFE3dExEMkV0czRWNlF1dkpETDBBRjgwM2pGZkNvc29tWjhzaFYtU0hKYVlWeSIsInN1YiI6IjM1IiwidHlwIjoiYWNjZXNzIn0.ppNGFo7LZznwQmzCFbNlM-DmAvJ2v2dR2tip0BIN4IFoDLVH43cI9W2DZ1gFAZn2TADLYSv2K9Vq2THFc3o3Vg", "hasMetamask": false, "consent": "" }))
+      setTimeout(() => {
+        parent.postMessage({
+          type: 'sanbase-sync',
+          storage: JSON.parse(localStorage.getItem('user'))
+        }, "http://app.localhost:8000");
+      }, 1000)
+
+    })()
+  </script>
+</body>
+
+</html>

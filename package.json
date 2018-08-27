@@ -4,13 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "express": "^4.16.3",
+    "graphiql": "^0.11.11",
+    "graphql": "^0.13.2",
+    "isomorphic-fetch": "^2.2.1",
+    "markdown-it": "^8.4.2",
     "next": "^6.1.1",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "react-no-ssr": "^1.1.0"
+  },
+  "devDependencies": {
+    "node-static": "^0.7.10",
+    "vhost": "^3.0.2"
   }
 }
