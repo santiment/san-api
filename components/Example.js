@@ -7,27 +7,29 @@ import markdownIt from 'markdown-it'
 const md = markdownIt()
 
 const host = process.env.NODE_ENV === 'development'
-  ? 'api.localhost:8000'
+  ? 'localhost:3000'
   : 'api.santiment.net'
 
 const propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  variables: PropTypes.string.isRequired,
+  variables: PropTypes.object.isRequired,
   query: PropTypes.string.isRequired
 }
 
-const Example = ({ title, description, variables, query }) => {
+const Example = ({ title, description, variables, query, notes = '' }) => {
   return (
     <Fragment>
       <h3>{title}</h3>
       <div
         className='description'
-        dangerouslySetInnerHTML={{ __html: md.render(description) }}
+        dangerouslySetInnerHTML={{
+          __html: md.render(description + notes)
+        }}
       />
       <p>
         <a
-          href={`http://${host}/graphiql?variables=${encodeURIComponent(variables)}&query=${encodeURIComponent(query)}`}
+          href={`http://${host}/graphiql?variables=${encodeURIComponent(JSON.stringify(variables))}&query=${encodeURIComponent(query)}`}
           target='_blank'
         >
           Run in explorer

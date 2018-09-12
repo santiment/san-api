@@ -7,7 +7,7 @@ import { parse, print } from 'graphql'
 
 function graphQLFetcher (graphQLParams) {
   if (window) {
-    return fetch('https://api-stage.santiment.net//graphql', {
+    return fetch('https://api-stage.santiment.net/graphql', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(graphQLParams)
@@ -41,8 +41,8 @@ const graphiql = ({ variables, query }) => (
     <NoSSR>
       <GraphiQL
         fetcher={graphQLFetcher}
-        variables={variables}
-        query={print(parse(query))}
+        variables={variables || ''}
+        query={query && print(parse(query))}
       />
     </NoSSR>
   </Fragment>

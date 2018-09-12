@@ -10,14 +10,23 @@
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.10",
+    "apollo-client": "^2.4.2",
+    "apollo-link": "^1.2.2",
+    "apollo-link-error": "^1.1.0",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-retry": "^2.2.4",
     "express": "^4.16.3",
     "graphiql": "^0.11.11",
     "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "isomorphic-fetch": "^2.2.1",
     "markdown-it": "^8.4.2",
     "next": "^6.1.1",
     "prop-types": "^15.6.2",
+    "raven-js": "^3.27.0",
     "react": "^16.4.2",
+    "react-apollo": "^2.1.11",
     "react-dom": "^16.4.2",
     "react-no-ssr": "^1.1.0"
   },
