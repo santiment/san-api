@@ -1,8 +1,6 @@
-import App, { Container } from 'next/app'
-
 import Head from 'next/head'
-import Docs from '../components/Docs'
-import { graphql, ApolloProvider } from 'react-apollo'
+import Docs from '../components/Docs/Docs'
+import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-client'
 import errorLink from '../components/apollo/error-link'
 import retryLink from '../components/apollo/retry-link'
@@ -20,10 +18,6 @@ const client = new ApolloClient({
   link: from([httpLink, errorLink, retryLink]),
   cache: new InMemoryCache()
 })
-
-const host = process.env.NODE_ENV === 'development'
-  ? 'localhost:3000'
-  : 'api.santiment.net'
 
 const IndexPage = props => {
   console.log('TCL: props', props)
