@@ -17,7 +17,7 @@ const httpLink = createHttpLink({
 })
 
 const client = new ApolloClient({
-  link: from([httpLink, errorLink, retryLink]),
+  link: from([httpLink]),
   cache: new InMemoryCache()
 })
 
@@ -26,6 +26,7 @@ const host = process.env.NODE_ENV === 'development'
   : 'api.santiment.net'
 
 const IndexPage = props => {
+  console.log(`env: ${process.env.NODE_ENV}`)
   console.log('TCL: props', props)
 
   return (

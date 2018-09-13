@@ -35,14 +35,6 @@ const examples = [
     name: 'socialVolume',
     title: 'Social Volume'
   },
-  {
-    name: 'socialVolumeProjects',
-    title: 'Social Volume Projects'
-  },
-  {
-    name: 'topicSearch',
-    title: 'Topic search'
-  }
 ]
 
 const defaults = {
@@ -66,6 +58,7 @@ const constructQueryArguments = (args, skipArgs = []) =>
 
 const constructRecursiveProperties = type => {
   const fields = type.getFields()
+  console.log(type.getFields())
   return Object.keys(fields)
     .map(
       field =>
@@ -74,11 +67,15 @@ const constructRecursiveProperties = type => {
     .join(',')
 }
 
-const constructPropertiesFromType = type =>
-  (type.ofType
-    ? Object.keys(type.ofType.getFields()).join(',')
-    : constructRecursiveProperties(type))
+const constructPropertiesFromType = type => {
 
+  let res = type.ofType
+    ? console.log('type.ofType', type.ofType) && Object.keys(type.ofType.getFields()).join(',')
+    : console.log('type', type) && constructRecursiveProperties(type)
+  
+  console.log(res)
+  return res
+}
 const getObjectClassName = obj => obj && obj.constructor.name
 
 const formatQueryToString = ({ name, type, args }, skipArgs) => {
@@ -95,6 +92,7 @@ const Docs = ({ data }) => {
   if (data.__schema) {
     schema = buildClientSchema(data)
     queryFields = schema.getQueryType().getFields()
+    console.log('queryFields: ', queryFields)
   }
   return (
     <main role='main'>
@@ -104,7 +102,7 @@ const Docs = ({ data }) => {
       {queryFields &&
         examples.map(({ name, title, skipArgs, notes }) => {
           const field = queryFields[name]
-          // console.log(field)
+          console.log(field)
           return (
             <Example
               key={name}
