@@ -9,9 +9,11 @@ import retryLink from '../components/apollo/retry-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { from } from 'apollo-link'
 import { createHttpLink } from 'apollo-link-http'
+import fetch from 'isomorphic-fetch'
 
 const httpLink = createHttpLink({
-  uri: 'https://api-stage.santiment.net/graphql'
+  uri: 'https://api-stage.santiment.net/graphql',
+  fetch
 })
 
 const client = new ApolloClient({
