@@ -32,7 +32,7 @@ const IndexPage = props => {
   return (
     <ApolloProvider client={client}>
       <Head>
-        <link rel='stylesheet' href='http://api.santiment.net/markdown.css' />
+        <link rel='stylesheet' href='http://api-stage.santiment.net/markdown.css' />
       </Head>
       <Docs />
     </ApolloProvider>
