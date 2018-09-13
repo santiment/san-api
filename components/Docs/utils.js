@@ -1,4 +1,4 @@
-import { argumentDefaults } from '../defaults'
+import { argumentDefaults } from '../../defaults'
 
 const getDefaultArgValue = arg =>
   (arg.defaultValue ? `"${arg.defaultValue}"` : argumentDefaults[arg.name])

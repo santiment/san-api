@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Docs from '../components/Docs'
+import Docs from '../components/Docs/Docs'
 import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-client'
 import errorLink from '../components/apollo/error-link'

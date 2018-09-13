@@ -1,8 +1,8 @@
-import Example from './Example'
-import DocsHeader from './DocsHeader'
+import Example from '../Example'
+import DocsHeader from './Header'
 import { graphql } from 'react-apollo'
 import { introspectionQuery, buildClientSchema } from 'graphql'
-import { examples } from '../defaults'
+import { examples } from '../../defaults'
 import { formatQueryToString } from './utils'
 import gql from 'graphql-tag'
 
