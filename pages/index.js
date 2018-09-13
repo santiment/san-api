@@ -10,6 +10,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { from } from 'apollo-link'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-fetch'
+import getConfig from 'next/config'
+
+const {publicRuntimeConfig} = getConfig()
 
 const httpLink = createHttpLink({
   uri: 'https://api-stage.santiment.net/graphql',
@@ -28,6 +31,7 @@ const host = process.env.NODE_ENV === 'development'
 const IndexPage = props => {
   console.log('TCL: props', props)
   console.log('process.env: ', process.env.BACKEND_URL)
+  console.log('backendUrl: ', publicRuntimeConfig.backendUrl)
 
   return (
     <ApolloProvider client={client}>
