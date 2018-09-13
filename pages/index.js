@@ -27,6 +27,7 @@ const host = process.env.NODE_ENV === 'development'
 
 const IndexPage = props => {
   console.log('TCL: props', props)
+  console.log('process.env: ', process.env)
 
   return (
     <ApolloProvider client={client}>
