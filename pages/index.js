@@ -10,10 +10,10 @@ import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-fetch'
 import getConfig from 'next/config'
 
-const {publicRuntimeConfig} = getConfig()
+const { publicRuntimeConfig } = getConfig()
 
 const httpLink = createHttpLink({
-  uri: 'https://api-stage.santiment.net/graphql',
+  uri: `${publicRuntimeConfig.backendUrl}/graphql`,
   fetch
 })
 
@@ -30,7 +30,10 @@ const IndexPage = props => {
   return (
     <ApolloProvider client={client}>
       <Head>
-        <link rel='stylesheet' href='https://api-stage.santiment.net/markdown.css' />
+        <link
+          rel='stylesheet'
+          href={`${publicRuntimeConfig.backendUrl}/markdown.css`}
+        />
       </Head>
       <Docs />
     </ApolloProvider>

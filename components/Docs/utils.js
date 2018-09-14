@@ -24,10 +24,8 @@ const constructPropertiesFromType = type =>
     ? Object.keys(type.ofType.getFields()).join(',')
     : constructRecursiveProperties(type))
 
-const getObjectClassName = obj => obj && obj.constructor.name
-
 export const formatQueryToString = ({ name, type, args }, skipArgs) => {
-  if (getObjectClassName(type.ofType) === 'GraphQLScalarType') {
+  if (type.name !== 'TopicSearch' && type.ofType.name === 'String') {
     return name
   }
   return `${name}(${constructQueryArguments(args, skipArgs)}){${constructPropertiesFromType(type)}}`

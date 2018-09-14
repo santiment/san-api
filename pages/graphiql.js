@@ -4,10 +4,13 @@ import GraphiQL from 'graphiql'
 import fetch from 'isomorphic-fetch'
 import NoSSR from 'react-no-ssr'
 import { parse, print } from 'graphql'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 function graphQLFetcher (graphQLParams) {
   if (window) {
-    return fetch('https://api-stage.santiment.net/graphql', {
+    return fetch(`${publicRuntimeConfig.backendUrl}/graphql`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(graphQLParams)
