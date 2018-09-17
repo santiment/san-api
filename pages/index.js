@@ -24,7 +24,6 @@ const client = new ApolloClient({
 
 const IndexPage = props => {
   console.log('TCL: props', props)
-  console.log('process.env: ', process.env.BACKEND_URL)
   console.log('backendUrl: ', publicRuntimeConfig.backendUrl)
 
   return (
