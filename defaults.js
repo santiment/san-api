@@ -19,7 +19,7 @@ export const examples = [
     name: 'githubActivity',
     title: 'Github Activity',
     skipArgs: ['movingAverageIntervalBase', 'ticker', 'to', 'transform'],
-    notes: `\n\n\n[An article explaining our approach to tracking github activity](https://medium.com/santiment/tracking-github-activity-of-crypto-projects-introducing-a-better-approach-9fb1af3f1c32){:target="_blank"}`
+    notes: `\n\n\n[An article explaining our approach to tracking github activity](https://medium.com/santiment/tracking-github-activity-of-crypto-projects-introducing-a-better-approach-9fb1af3f1c32){target="_blank"}`
   },
   {
     name: 'erc20ExchangeFundsFlow',

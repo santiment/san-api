@@ -17,7 +17,6 @@ const Docs = ({ data }) => {
   return (
     <main role='main'>
       <DocsHeader />
-      <p><a name='explorer' /></p>
       <h1>Using the Sanbase API explorer</h1>
       {queryFields &&
         examples.map(({ name, title, skipArgs, notes }) => {

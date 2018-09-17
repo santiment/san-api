@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 import Code from './Code'
 import markdownIt from 'markdown-it'
 import getConfig from 'next/config'
+import markdownItAttrs from 'markdown-it-attrs'
 
 const { publicRuntimeConfig } = getConfig()
 const md = markdownIt()
+md.use(markdownItAttrs)
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -35,7 +37,7 @@ const Example = ({ title, description, variables, query, notes = '' }) => {
       </p>
       <Code type='graphql'>{print(parse(query))}</Code>
       <p>Run in terminal</p>
-      <Code type='bash'>{`curl \\\n  -X POST \\\n  -H "Content-Type: application/json" \\\n  --data '{ "query": ${JSON.stringify(query)} }' \\\n  ${publicRuntimeConfig.backendUrl}/graphql`}</Code>
+      <Code type='bash'>{`curl \\\n  -X POST \\\n  -H "Content-Type: application/json" \\\n  --data '{ "query": ${JSON.stringify(query)} }' \\\n  ${publicRuntimeConfig.backendUrl}/graphiql`}</Code>
     </Fragment>
   )
 }

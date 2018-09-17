@@ -1,28 +1,29 @@
-# How it's working?
+# SAN-API
 
-1. Render iframe.
+This is the source of the sanbase API documentation project of [`https://santiment.net`](https://santiment.net).
 
-```javascript
-// E.g. on the index page of the api.***.*
-<iframe src="http://app.***.*/" />
+## Setup
+
+### Cloning
+
+```
+git clone git@github.com:santiment/san-api.git
 ```
 
-2. Waiting for scripts to run inside the inserted iframe. One of these scripts sends to us the santiment app user data contained in the localStorage.
+### Installing dependencies
 
-```javascript
-// Send localStorage object from the iframe to the corresponding origin (api.***.*).
-parent.postMessage(
-  JSON.parse(localStorage.getItem('user')),
-  'http://api.***.*'
-);
+```
+npm i
 ```
 
-3. Our page receives the message and runs necessary logic.
+### Starting a development build
 
-```javascript
-window.addEventListener('message', ({ origin, data }) => {
-  if (origin === 'http://app.***.*') {
-    console.log(data);
-  }
-});
+```
+npm run dev
+```
+
+### Building the project
+
+```
+npm run build
 ```
