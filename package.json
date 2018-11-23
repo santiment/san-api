@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "BACKEND_URL=https://api-stage.santiment.net next",
+    "dev": "BACKEND_URL=https://api-stage.santiment.net REQUIRED_SAN_STAKE_FULL_ACCESS=??? next",
     "build": "next build",
     "start": "next start",
     "test": "./node_modules/.bin/mocha --reporter spec"
