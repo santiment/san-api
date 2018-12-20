@@ -41,8 +41,8 @@ export const examples = [
 
 export const argumentDefaults = {
   slug: `"dragonchain"`,
-  from: `"2018-08-01 16:00:00Z"`,
-  to: `"2018-08-05 16:00:00Z"`,
+  from: undefined,
+  to: undefined,
   interval: `"1d"`,
   source: 'TELEGRAM',
   searchText: `"btc moon"`,
