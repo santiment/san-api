@@ -9,6 +9,7 @@ import { from } from 'apollo-link'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-fetch'
 import getConfig from 'next/config'
+import { argumentDefaults } from '../defaults'
 import './markdown.css'
 
 const { publicRuntimeConfig } = getConfig()
@@ -22,6 +23,13 @@ const client = new ApolloClient({
   link: from([httpLink, errorLink, retryLink]),
   cache: new InMemoryCache()
 })
+
+argumentDefaults.from = `"${new Date(
+  Date.now() - 1000 * 60 * 60 * 24 * 30
+).toISOString()}"`
+argumentDefaults.to = `"${new Date(
+  Date.now() - 1000 * 60 * 60 * 24 * 16
+).toISOString()}"`
 
 const IndexPage = props => {
   return (
