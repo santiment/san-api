@@ -9,6 +9,7 @@ import { from } from 'apollo-link'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-fetch'
 import getConfig from 'next/config'
+import './markdown.css'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -23,16 +24,10 @@ const client = new ApolloClient({
 })
 
 const IndexPage = props => {
-  console.log('TCL: props', props)
-  console.log('backendUrl: ', publicRuntimeConfig.backendUrl)
-
   return (
     <ApolloProvider client={client}>
       <Head>
-        <link
-          rel='stylesheet'
-          href={`${publicRuntimeConfig.backendUrl}/markdown.css`}
-        />
+        <link rel='stylesheet' href='/_next/static/style.css' />
       </Head>
       <Docs />
     </ApolloProvider>

@@ -7,7 +7,6 @@ import { formatQueryToString } from './utils'
 import gql from 'graphql-tag'
 
 const Docs = ({ data }) => {
-  console.log('TCL: props', data)
   let schema
   let queryFields
   if (data.__schema) {
@@ -21,7 +20,6 @@ const Docs = ({ data }) => {
       {queryFields &&
         examples.map(({ name, title, skipArgs, notes }) => {
           const field = queryFields[name]
-          // console.log(field)
           return (
             <Example
               key={name}
@@ -33,7 +31,6 @@ const Docs = ({ data }) => {
             />
           )
         })}
-
     </main>
   )
 }
